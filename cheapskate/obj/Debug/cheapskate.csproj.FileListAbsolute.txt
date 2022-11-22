@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\bin\Debug\cheapskate.exe.config
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\bin\Debug\cheapskate.exe
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\bin\Debug\cheapskate.pdb
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.csprojAssemblyReference.cache
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.join.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Login.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Properties.Resources.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.csproj.GenerateResource.cache
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.exe
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.pdb
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Main.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Spending.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Graph.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Property.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Write.resources
