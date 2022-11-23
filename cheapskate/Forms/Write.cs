@@ -17,6 +17,7 @@ namespace cheapskate.Forms
             InitializeComponent();
         }
 
+        /*
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -31,11 +32,12 @@ namespace cheapskate.Forms
             }
             label4.ForeColor = ThemeColor.SecondaryColor;
             label5.ForeColor = ThemeColor.PrimaryColor;
-        }
+        } 
+        */
 
         private void Write_Load(object sender, EventArgs e)
         {
-            LoadTheme();
+            //LoadTheme();
         }
     }
 }
