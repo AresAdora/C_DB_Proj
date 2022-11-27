@@ -23,6 +23,7 @@ namespace cheapskate
         {
             InitializeComponent();
             random = new Random();
+            timer.Start();
         }
 
         //Methods
@@ -52,6 +53,7 @@ namespace cheapskate
                     currentButton.Font= new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
                     panelTitleBar.BackColor = color;
                     panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color,-0.3);
+                    btnLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     ThemeColor.PrimaryColor = color;
                     ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                 }
@@ -94,12 +96,6 @@ namespace cheapskate
             //ActivateButton(sender);
         }
 
-        private void btnProperty_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Forms.Property(), sender);
-            //ActivateButton(sender);
-        }
-
         private void btnWrite_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.Write(), sender);
@@ -109,6 +105,23 @@ namespace cheapskate
         private void btnGraph_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.Graph(), sender);
+            //ActivateButton(sender);
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            this.Time.Text = DateTime.Now.ToString("HH:mm:ss");
+            this.Date.Text = DateTime.Now.ToString("yyyy MM dd dddd");
+        }
+
+        private void btnLogo_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.Home(), sender);
+        }
+
+        private void btnGoal_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.Goal(), sender);
             //ActivateButton(sender);
         }
     }

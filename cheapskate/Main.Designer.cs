@@ -28,45 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.btnSpending = new System.Windows.Forms.Button();
-            this.btnProperty = new System.Windows.Forms.Button();
-            this.btnWrite = new System.Windows.Forms.Button();
+            this.btnGoal = new System.Windows.Forms.Button();
             this.btnGraph = new System.Windows.Forms.Button();
+            this.btnWrite = new System.Windows.Forms.Button();
+            this.btnSpending = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.btnLogo = new System.Windows.Forms.Button();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.Date = new System.Windows.Forms.Label();
+            this.Time = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
+            this.panelDesktop.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMenu.Controls.Add(this.btnGoal);
             this.panelMenu.Controls.Add(this.btnGraph);
             this.panelMenu.Controls.Add(this.btnWrite);
-            this.panelMenu.Controls.Add(this.btnProperty);
             this.panelMenu.Controls.Add(this.btnSpending);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(200, 566);
+            this.panelMenu.Size = new System.Drawing.Size(200, 703);
             this.panelMenu.TabIndex = 0;
             // 
-            // panelLogo
+            // btnGoal
             // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.panelLogo.Controls.Add(this.label2);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(198, 100);
-            this.panelLogo.TabIndex = 1;
+            this.btnGoal.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGoal.FlatAppearance.BorderSize = 0;
+            this.btnGoal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGoal.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnGoal.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnGoal.Location = new System.Drawing.Point(0, 280);
+            this.btnGoal.Name = "btnGoal";
+            this.btnGoal.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnGoal.Size = new System.Drawing.Size(198, 60);
+            this.btnGoal.TabIndex = 5;
+            this.btnGoal.Text = "목표";
+            this.btnGoal.UseVisualStyleBackColor = true;
+            this.btnGoal.Click += new System.EventHandler(this.btnGoal_Click);
+            // 
+            // btnGraph
+            // 
+            this.btnGraph.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGraph.FlatAppearance.BorderSize = 0;
+            this.btnGraph.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGraph.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnGraph.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnGraph.Location = new System.Drawing.Point(0, 220);
+            this.btnGraph.Name = "btnGraph";
+            this.btnGraph.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnGraph.Size = new System.Drawing.Size(198, 60);
+            this.btnGraph.TabIndex = 4;
+            this.btnGraph.Text = "그래프";
+            this.btnGraph.UseVisualStyleBackColor = true;
+            this.btnGraph.Click += new System.EventHandler(this.btnGraph_Click);
+            // 
+            // btnWrite
+            // 
+            this.btnWrite.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnWrite.FlatAppearance.BorderSize = 0;
+            this.btnWrite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWrite.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnWrite.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnWrite.Location = new System.Drawing.Point(0, 160);
+            this.btnWrite.Name = "btnWrite";
+            this.btnWrite.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnWrite.Size = new System.Drawing.Size(198, 60);
+            this.btnWrite.TabIndex = 3;
+            this.btnWrite.Text = "작성";
+            this.btnWrite.UseVisualStyleBackColor = true;
+            this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
             // 
             // btnSpending
             // 
@@ -80,57 +123,34 @@
             this.btnSpending.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnSpending.Size = new System.Drawing.Size(198, 60);
             this.btnSpending.TabIndex = 0;
-            this.btnSpending.Text = "지출내역";
+            this.btnSpending.Text = "마이페이지";
             this.btnSpending.UseVisualStyleBackColor = true;
             this.btnSpending.Click += new System.EventHandler(this.btnSpending_Click);
             // 
-            // btnProperty
+            // panelLogo
             // 
-            this.btnProperty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProperty.FlatAppearance.BorderSize = 0;
-            this.btnProperty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProperty.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnProperty.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnProperty.Location = new System.Drawing.Point(0, 160);
-            this.btnProperty.Name = "btnProperty";
-            this.btnProperty.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnProperty.Size = new System.Drawing.Size(198, 60);
-            this.btnProperty.TabIndex = 2;
-            this.btnProperty.Text = "자산내역";
-            this.btnProperty.UseVisualStyleBackColor = true;
-            this.btnProperty.Click += new System.EventHandler(this.btnProperty_Click);
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panelLogo.Controls.Add(this.btnLogo);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(198, 100);
+            this.panelLogo.TabIndex = 1;
             // 
-            // btnWrite
+            // btnLogo
             // 
-            this.btnWrite.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnWrite.FlatAppearance.BorderSize = 0;
-            this.btnWrite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWrite.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnWrite.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnWrite.Location = new System.Drawing.Point(0, 220);
-            this.btnWrite.Name = "btnWrite";
-            this.btnWrite.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnWrite.Size = new System.Drawing.Size(198, 60);
-            this.btnWrite.TabIndex = 3;
-            this.btnWrite.Text = "작성";
-            this.btnWrite.UseVisualStyleBackColor = true;
-            this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
-            // 
-            // btnGraph
-            // 
-            this.btnGraph.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGraph.FlatAppearance.BorderSize = 0;
-            this.btnGraph.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGraph.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnGraph.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnGraph.Location = new System.Drawing.Point(0, 280);
-            this.btnGraph.Name = "btnGraph";
-            this.btnGraph.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnGraph.Size = new System.Drawing.Size(198, 60);
-            this.btnGraph.TabIndex = 4;
-            this.btnGraph.Text = "그래프";
-            this.btnGraph.UseVisualStyleBackColor = true;
-            this.btnGraph.Click += new System.EventHandler(this.btnGraph_Click);
+            this.btnLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLogo.FlatAppearance.BorderSize = 0;
+            this.btnLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogo.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnLogo.ForeColor = System.Drawing.Color.White;
+            this.btnLogo.Location = new System.Drawing.Point(0, 0);
+            this.btnLogo.Name = "btnLogo";
+            this.btnLogo.Size = new System.Drawing.Size(198, 100);
+            this.btnLogo.TabIndex = 0;
+            this.btnLogo.Text = "CheapSkate";
+            this.btnLogo.UseVisualStyleBackColor = true;
+            this.btnLogo.Click += new System.EventHandler(this.btnLogo_Click);
             // 
             // panelTitleBar
             // 
@@ -140,7 +160,7 @@
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(200, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(859, 100);
+            this.panelTitleBar.Size = new System.Drawing.Size(1032, 100);
             this.panelTitleBar.TabIndex = 1;
             // 
             // lblTitle
@@ -149,36 +169,55 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Monotype Corsiva", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(347, 29);
+            this.lblTitle.Location = new System.Drawing.Point(434, 29);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(139, 40);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "HOME";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(11, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 38);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "CheapSkate";
-            // 
             // panelDesktop
             // 
+            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panelDesktop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDesktop.Controls.Add(this.Date);
+            this.panelDesktop.Controls.Add(this.Time);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(200, 100);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(859, 466);
+            this.panelDesktop.Size = new System.Drawing.Size(1032, 603);
             this.panelDesktop.TabIndex = 2;
+            // 
+            // Date
+            // 
+            this.Date.AutoSize = true;
+            this.Date.Font = new System.Drawing.Font("맑은 고딕", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Date.Location = new System.Drawing.Point(158, 292);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(223, 106);
+            this.Date.TabIndex = 1;
+            this.Date.Text = "Date";
+            // 
+            // Time
+            // 
+            this.Time.AutoSize = true;
+            this.Time.Font = new System.Drawing.Font("맑은 고딕", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Time.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Time.Location = new System.Drawing.Point(338, 134);
+            this.Time.Name = "Time";
+            this.Time.Size = new System.Drawing.Size(232, 106);
+            this.Time.TabIndex = 0;
+            this.Time.Text = "Time";
+            // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 566);
+            this.ClientSize = new System.Drawing.Size(1232, 703);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
@@ -186,9 +225,10 @@
             this.Text = "Main";
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
-            this.panelLogo.PerformLayout();
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
+            this.panelDesktop.ResumeLayout(false);
+            this.panelDesktop.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -196,14 +236,17 @@
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btnSpending;
         private System.Windows.Forms.Button btnGraph;
         private System.Windows.Forms.Button btnWrite;
-        private System.Windows.Forms.Button btnProperty;
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelDesktop;
+        private System.Windows.Forms.Panel panelLogo;
+        private System.Windows.Forms.Button btnLogo;
+        private System.Windows.Forms.Label Date;
+        private System.Windows.Forms.Label Time;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button btnGoal;
     }
 }

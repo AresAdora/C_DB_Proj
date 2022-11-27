@@ -11,5 +11,7 @@ C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Main.resources
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Spending.resources
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Graph.resources
-C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Property.resources
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Write.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Home.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\bin\Debug\Oracle.DataAccess.dll
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.csproj.CopyComplete
