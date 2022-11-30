@@ -98,7 +98,7 @@ namespace cheapskate
 
         private void btnWrite_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.Write(), sender);
+            OpenChildForm(new Forms.WriteOut(), sender);
             //ActivateButton(sender);
         }
 
@@ -123,6 +123,11 @@ namespace cheapskate
         {
             OpenChildForm(new Forms.Goal(), sender);
             //ActivateButton(sender);
+        }
+
+        private void btnInWrite_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.WriteIn(), sender);
         }
     }
 }
