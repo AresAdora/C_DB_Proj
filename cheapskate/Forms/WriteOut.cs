@@ -19,11 +19,18 @@ namespace cheapskate.Forms
         DataSet DS; // DataSet 객체입니다. 
         OracleCommandBuilder myCommandBuilder; // 추가, 수정, 삭제시에 필요한 명령문을 자동으로 작성해주는 객체입니다. 
         private int SelectedKeyValue; // 수정, 삭제할 때 필요한 레코드의 키값을
-        
+        OracleCommand cmd;
         public WriteOut()
         {
             InitializeComponent();
             showDataGridView();
+        }
+
+        private void ClearTextBoxes()
+        {
+            txtTag.Clear();
+            txtDate.Clear();
+            txtOut.Clear();
         }
 
         private void showDataGridView() //사용자 정의 함수
@@ -33,7 +40,8 @@ namespace cheapskate.Forms
                 odpConn.ConnectionString = "User Id=jy2; Password=1234; Data Source=(DESCRIPTION =   (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME =xe)));";
                 odpConn.Open();
                 OracleDataAdapter oda = new OracleDataAdapter();
-                oda.SelectCommand = new OracleCommand("select outcome_id, amount, text, datein from outcome", odpConn);
+                oda.SelectCommand = new OracleCommand("select outcome.outcome_id, outcome.amount, outcome.text, outcome.datein, bank.b_amount from outcome, bank where bank.bank_id=1", odpConn);
+                //outcome_id, amount, text, datein
                 //OracleCommand("SELECT out_id, out_amount, out_tag, out_date from outcome where b_id=1", odpConn);
                 DataTable OutcomeTable = new DataTable();
                 oda.Fill(OutcomeTable);
@@ -48,6 +56,7 @@ namespace cheapskate.Forms
                 DBGrid.Columns[1].HeaderText = "지출금액";
                 DBGrid.Columns[2].HeaderText = "태그";
                 DBGrid.Columns[3].HeaderText = "날짜";
+                DBGrid.Columns[4].HeaderText = "현재계좌잔액";
             }
             catch (Exception ex)
             {
@@ -119,20 +128,31 @@ namespace cheapskate.Forms
         {
             try
             {
-                odpConn.ConnectionString = "User Id = jy2;Password = 1234; Data Source = (DESCRIPTION = (ADDRESS =(PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe))); ";
-                odpConn.Open();
-                int amount = Convert.ToInt32(txtOut.Text.Trim()); //**
-                int b_id = 1;
-                String out_tag = txtTag.Text.Trim(); //**
-                String out_date = txtDate.Text.Trim(); //**
-                string strqry = "INSERT INTO outcome VALUES (" + "'" + b_id + "'" + "," + amount + "," + "'" + out_tag + "'" + "," + "'" + out_date + "'" + ")";
-                //"INSERT INTO phone VALUES (id, pname, phone, email)"을 수정
-                OracleCommand OraCmd = new OracleCommand(strqry, odpConn);
-                //return OraCmd.ExecuteNonQuery(); //추가되는 행수 반환
+                OracleDataAdapter odp = new OracleDataAdapter();
+                int amount = Convert.ToInt32(txtOut.Text);
+                String Date = txtDate.Text;
+                String Tag = txtTag.Text;
+
+                string insertSql = "insert into outcome values ( SEQ_OUTCOME.nextval,"+"1"+","+amount+","+"'"+ Tag + "'"+","+"'"+Date+"'"+")";
+                odp.SelectCommand = new OracleCommand(insertSql, odpConn);
+                DataSet DS = new DataSet();
+                odp.Fill(DS);
+
+                string updateSql = "update bank set b_amount=b_amount-"+amount+" where bank.bank_id=1";
+                odp.SelectCommand = new OracleCommand(updateSql, odpConn);
+                DataSet DS2 = new DataSet();
+                odp.Fill(DS2);       
+
+                ClearTextBoxes();
+                showDataGridView();
             }
-            catch (Exception ex)
+            catch (DataException DE)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(DE.Message);
+            }
+            catch (Exception DE)
+            {
+                MessageBox.Show(DE.Message);
             }
         }
 
