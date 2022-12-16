@@ -89,10 +89,10 @@ namespace cheapskate
             childForm.Show();
             lblTitle.Text = childForm.Text;
         }
-        
-        private void btnSpending_Click(object sender, EventArgs e)
+
+        private void btnInfo_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.Spending(), sender);
+            OpenChildForm(new Forms.Info(), sender);
             //ActivateButton(sender);
         }
 
@@ -121,7 +121,7 @@ namespace cheapskate
 
         private void btnGoal_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.Goal(), sender);
+            OpenChildForm(new Forms.Memo(), sender);
             //ActivateButton(sender);
         }
 
@@ -129,5 +129,12 @@ namespace cheapskate
         {
             OpenChildForm(new Forms.WriteIn(), sender);
         }
+
+        private void closebtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        
     }
 }

@@ -20,6 +20,7 @@ namespace cheapskate.Forms
         OracleCommandBuilder myCommandBuilder; // 추가, 수정, 삭제시에 필요한 명령문을 자동으로 작성해주는 객체입니다. 
         private int SelectedKeyValue; // 수정, 삭제할 때 필요한 레코드의 키값을
         OracleCommand cmd;
+
         public WriteOut()
         {
             InitializeComponent();
@@ -40,11 +41,12 @@ namespace cheapskate.Forms
                 odpConn.ConnectionString = "User Id=jy2; Password=1234; Data Source=(DESCRIPTION =   (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME =xe)));";
                 odpConn.Open();
                 OracleDataAdapter oda = new OracleDataAdapter();
-                oda.SelectCommand = new OracleCommand("select outcome.outcome_id, outcome.amount, outcome.text, outcome.datein, bank.b_amount from outcome, bank where bank.bank_id=1", odpConn);
+                oda.SelectCommand = new OracleCommand("select outcome_id, amount, text, datein from outcome where bank_id=1", odpConn);
                 //outcome_id, amount, text, datein
                 //OracleCommand("SELECT out_id, out_amount, out_tag, out_date from outcome where b_id=1", odpConn);
                 DataTable OutcomeTable = new DataTable();
                 oda.Fill(OutcomeTable);
+
                 odpConn.Close();
                 DBGrid.DataSource = OutcomeTable;
                 DBGrid.AutoResizeColumns();
@@ -56,7 +58,6 @@ namespace cheapskate.Forms
                 DBGrid.Columns[1].HeaderText = "지출금액";
                 DBGrid.Columns[2].HeaderText = "태그";
                 DBGrid.Columns[3].HeaderText = "날짜";
-                DBGrid.Columns[4].HeaderText = "현재계좌잔액";
             }
             catch (Exception ex)
             {
@@ -158,12 +159,41 @@ namespace cheapskate.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                OracleDataAdapter odp = new OracleDataAdapter();
+                int amount = Convert.ToInt32(txtOut.Text);
+                String Date = txtDate.Text;
+                String Tag = txtTag.Text;
 
+                int row = Convert.ToInt32(DBGrid.SelectedCells[0].Value);
+                string updateSql = "update outcome set amount=" + amount + "," + "text=" + "'" + Tag + "'" + "," + "datein=" + "'" + Date + "'" + " where outcome_id=" + row;
+                odp.SelectCommand = new OracleCommand(updateSql, odpConn);
+                DataSet DS = new DataSet();
+                odp.Fill(DS);
+
+                ClearTextBoxes();
+                showDataGridView();
+            }
+            catch (DataException DE)
+            {
+                MessageBox.Show(DE.Message);
+            }
+            catch (Exception DE)
+            {
+                MessageBox.Show(DE.Message);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            int row = Convert.ToInt32(DBGrid.SelectedCells[0].Value);
+            OracleDataAdapter odp = new OracleDataAdapter();
+            string deleteSql = "delete from outcome where outcome_id="+row;
+            odp.SelectCommand = new OracleCommand(deleteSql, odpConn);
+            DataSet DS = new DataSet();
+            odp.Fill(DS);
+            showDataGridView();
         }
     }
 }

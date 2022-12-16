@@ -9,11 +9,14 @@ C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.exe
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.pdb
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Main.resources
-C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Spending.resources
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Graph.resources
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Home.resources
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\bin\Debug\Oracle.DataAccess.dll
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.csproj.CopyComplete
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.WriteOut.resources
 C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.WriteIn.resources
-C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Goal.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Memo.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.UserControlDays.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Info.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.Calendar1.resources
+C:\Users\user\Desktop\git-프로젝트\DB설계\cheapskate\cheapskate\obj\Debug\cheapskate.Forms.EventForm.resources

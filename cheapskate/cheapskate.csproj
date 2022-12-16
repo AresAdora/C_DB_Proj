@@ -36,6 +36,7 @@
     <Reference Include="Oracle.DataAccess, Version=2.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,12 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBClass.cs" />
-    <Compile Include="Forms\Goal.cs">
+    <Compile Include="Forms\Calendar\Calendar1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Calendar\Calendar1.Designer.cs">
+      <DependentUpon>Calendar1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Calendar\ClassCard.cs" />
+    <Compile Include="Forms\Calendar\EventForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Goal.Designer.cs">
-      <DependentUpon>Goal.cs</DependentUpon>
+    <Compile Include="Forms\Calendar\EventForm.Designer.cs">
+      <DependentUpon>EventForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Calendar\Memo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Calendar\Memo.Designer.cs">
+      <DependentUpon>Memo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
@@ -66,17 +79,23 @@
     <Compile Include="Forms\Graph.Designer.cs">
       <DependentUpon>Graph.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserControlDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UserControlDays.Designer.cs">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WriteIn.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\WriteIn.Designer.cs">
       <DependentUpon>WriteIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Spending.cs">
+    <Compile Include="Forms\Info.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Spending.Designer.cs">
-      <DependentUpon>Spending.cs</DependentUpon>
+    <Compile Include="Forms\Info.Designer.cs">
+      <DependentUpon>Info.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\WriteOut.cs">
       <SubType>Form</SubType>
@@ -105,8 +124,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThemeColor.cs" />
-    <EmbeddedResource Include="Forms\Goal.resx">
-      <DependentUpon>Goal.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Calendar\Calendar1.resx">
+      <DependentUpon>Calendar1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Calendar\EventForm.resx">
+      <DependentUpon>EventForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Calendar\Memo.resx">
+      <DependentUpon>Memo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Graph.resx">
       <DependentUpon>Graph.cs</DependentUpon>
@@ -114,8 +139,11 @@
     <EmbeddedResource Include="Forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Spending.resx">
-      <DependentUpon>Spending.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Info.resx">
+      <DependentUpon>Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserControlDays.resx">
+      <DependentUpon>UserControlDays.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WriteIn.resx">
       <DependentUpon>WriteIn.cs</DependentUpon>
@@ -140,6 +168,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -154,5 +183,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\service-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\service-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\service-icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\service-icon21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

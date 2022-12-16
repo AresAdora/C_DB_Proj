@@ -34,10 +34,11 @@
             this.btnGraph = new System.Windows.Forms.Button();
             this.btnInWrite = new System.Windows.Forms.Button();
             this.btnOutWrite = new System.Windows.Forms.Button();
-            this.btnSpending = new System.Windows.Forms.Button();
+            this.btnInfo = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnLogo = new System.Windows.Forms.Button();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.closebtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.Date = new System.Windows.Forms.Label();
@@ -57,12 +58,12 @@
             this.panelMenu.Controls.Add(this.btnGraph);
             this.panelMenu.Controls.Add(this.btnInWrite);
             this.panelMenu.Controls.Add(this.btnOutWrite);
-            this.panelMenu.Controls.Add(this.btnSpending);
+            this.panelMenu.Controls.Add(this.btnInfo);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(200, 703);
+            this.panelMenu.Size = new System.Drawing.Size(200, 750);
             this.panelMenu.TabIndex = 0;
             // 
             // btnGoal
@@ -77,7 +78,7 @@
             this.btnGoal.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnGoal.Size = new System.Drawing.Size(198, 60);
             this.btnGoal.TabIndex = 6;
-            this.btnGoal.Text = "목표";
+            this.btnGoal.Text = "메모";
             this.btnGoal.UseVisualStyleBackColor = true;
             this.btnGoal.Click += new System.EventHandler(this.btnGoal_Click);
             // 
@@ -129,21 +130,21 @@
             this.btnOutWrite.UseVisualStyleBackColor = true;
             this.btnOutWrite.Click += new System.EventHandler(this.btnWrite_Click);
             // 
-            // btnSpending
+            // btnInfo
             // 
-            this.btnSpending.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSpending.FlatAppearance.BorderSize = 0;
-            this.btnSpending.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSpending.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnSpending.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSpending.Location = new System.Drawing.Point(0, 100);
-            this.btnSpending.Name = "btnSpending";
-            this.btnSpending.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnSpending.Size = new System.Drawing.Size(198, 60);
-            this.btnSpending.TabIndex = 0;
-            this.btnSpending.Text = "마이페이지";
-            this.btnSpending.UseVisualStyleBackColor = true;
-            this.btnSpending.Click += new System.EventHandler(this.btnSpending_Click);
+            this.btnInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInfo.FlatAppearance.BorderSize = 0;
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfo.Font = new System.Drawing.Font("맑은 고딕", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnInfo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnInfo.Location = new System.Drawing.Point(0, 100);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnInfo.Size = new System.Drawing.Size(198, 60);
+            this.btnInfo.TabIndex = 0;
+            this.btnInfo.Text = "마이페이지";
+            this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
             // panelLogo
             // 
@@ -174,12 +175,29 @@
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.panelTitleBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTitleBar.Controls.Add(this.closebtn);
             this.panelTitleBar.Controls.Add(this.lblTitle);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(200, 0);
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(1032, 100);
             this.panelTitleBar.TabIndex = 1;
+            // 
+            // closebtn
+            // 
+            this.closebtn.BackColor = System.Drawing.Color.Black;
+            this.closebtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closebtn.FlatAppearance.BorderSize = 0;
+            this.closebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closebtn.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closebtn.ForeColor = System.Drawing.Color.White;
+            this.closebtn.Location = new System.Drawing.Point(991, -1);
+            this.closebtn.Name = "closebtn";
+            this.closebtn.Size = new System.Drawing.Size(40, 40);
+            this.closebtn.TabIndex = 3;
+            this.closebtn.Text = "X";
+            this.closebtn.UseVisualStyleBackColor = false;
+            this.closebtn.Click += new System.EventHandler(this.closebtn_Click);
             // 
             // lblTitle
             // 
@@ -202,7 +220,7 @@
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(200, 100);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1032, 603);
+            this.panelDesktop.Size = new System.Drawing.Size(1032, 650);
             this.panelDesktop.TabIndex = 2;
             // 
             // Date
@@ -235,11 +253,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 703);
+            this.ClientSize = new System.Drawing.Size(1232, 750);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
@@ -254,7 +274,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btnSpending;
+        private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Button btnInWrite;
         private System.Windows.Forms.Button btnOutWrite;
         private System.Windows.Forms.Panel panelTitleBar;
@@ -267,5 +287,6 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button btnGraph;
         private System.Windows.Forms.Button btnGoal;
+        private System.Windows.Forms.Button closebtn;
     }
 }

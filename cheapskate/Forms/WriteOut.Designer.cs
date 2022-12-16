@@ -180,7 +180,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DBGrid);
             this.Name = "WriteOut";
-            this.Text = "Write";
+            this.Text = "OutWrite";
             ((System.ComponentModel.ISupportInitialize)(this.DBGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

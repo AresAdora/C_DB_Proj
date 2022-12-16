@@ -28,16 +28,22 @@ namespace cheapskate.Forms
             InitializeComponent();
             showDataGridView();
         }
+        private void ClearTextBoxes()
+        {
+            txtDate.Clear();
+            txtIn.Clear();
+            txtTag.Clear();
+        }
         private void showDataGridView() //사용자 정의 함수
         {
             try
             {
-                odpConn.ConnectionString = "User Id = jy;Password = 1206; Data Source = (DESCRIPTION = (ADDRESS =(PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe)));";
+                odpConn.ConnectionString = "User Id = jy2;Password = 1234; Data Source = (DESCRIPTION = (ADDRESS =(PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe)));";
                 odpConn.Open();
 
                 OracleDataAdapter oda = new OracleDataAdapter();
                 oda.SelectCommand = new
-                OracleCommand("SELECT income.in_amount, income.in_date, bank.b_name, bank.b_amount from income, bank", odpConn);
+                OracleCommand("SELECT income_id, amount, text, datein from income", odpConn);
 
                 DataTable dt = new DataTable();
                 oda.Fill(dt);
@@ -48,6 +54,11 @@ namespace cheapskate.Forms
                 DBGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 DBGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 DBGrid.AllowUserToAddRows = false;
+
+                DBGrid.Columns[0].HeaderText = "ID";
+                DBGrid.Columns[1].HeaderText = "수입금액";
+                DBGrid.Columns[2].HeaderText = "태그";
+                DBGrid.Columns[3].HeaderText = "날짜";
             }
             catch (Exception ex)
             {
@@ -71,41 +82,7 @@ namespace cheapskate.Forms
 
         private void DBGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                DataSet DS = new DataSet();
-                DBAdapter.Fill(DS);
-                OutcomeTable = DS.Tables["outcome"]; //지출 테이블
-                IncomeTable = DS.Tables["income"]; //수입 테이블
-                BankTable = DS.Tables["bank"]; //은행 테이블
-
-                if (e.RowIndex < 0)
-                {
-                    return;
-                }
-                else if (e.RowIndex > BankTable.Rows.Count - 1)
-                {
-                    MessageBox.Show("해당하는 데이터가 존재하지 않습니다.");
-                    return;
-                }
-                DataRow currRow = BankTable.Rows[e.RowIndex];
-
-                /*
-                txtid.Text = currRow["id"].ToString();
-                txtName.Text = currRow["PName"].ToString();
-                txtPhone.Text = currRow["Phone"].ToString();
-                txtMail.Text = currRow["EMail"].ToString();
-                SelectedRowIndex = Convert.ToInt32(currRow["id"]);
-                */
-            }
-            catch (DataException DE)
-            {
-                MessageBox.Show(DE.Message);
-            }
-            catch (Exception DE)
-            {
-                MessageBox.Show(DE.Message);
-            }
+            
         }
 
         private void DBGrid_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -130,6 +107,77 @@ namespace cheapskate.Forms
 
             SolidBrush drawBrush = new SolidBrush(Color.White);
             e.Graphics.DrawString(rowNumber, this.Font, drawBrush, drawRectangle, stringFormat);
+        }
+
+        private void btnAppend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OracleDataAdapter odp = new OracleDataAdapter();
+                int amount = Convert.ToInt32(txtIn.Text);
+                String Tag = txtTag.Text;
+                String Date = txtDate.Text;
+
+                string insertSql = "insert into income values ( SEQ_INCOME.nextval," + "1" + "," + amount + "," + "'" + Tag + "'" + "," + "'" + Date + "'" + ")";
+                odp.SelectCommand = new OracleCommand(insertSql, odpConn);
+                DataSet DS = new DataSet();
+                odp.Fill(DS);
+
+                string updateSql = "update bank set b_amount=b_amount+" + amount + " where bank.bank_id=1";
+                odp.SelectCommand = new OracleCommand(updateSql, odpConn);
+                DataSet DS2 = new DataSet();
+                odp.Fill(DS2);
+
+                ClearTextBoxes();
+                showDataGridView();
+            }
+            catch (DataException DE)
+            {
+                MessageBox.Show(DE.Message);
+            }
+            catch (Exception DE)
+            {
+                MessageBox.Show(DE.Message);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OracleDataAdapter odp = new OracleDataAdapter();
+                int amount = Convert.ToInt32(txtIn.Text);
+                String Date = txtDate.Text;
+                String Tag = txtTag.Text;
+
+                int row = Convert.ToInt32(DBGrid.SelectedCells[0].Value);
+                string updateSql = "update income set amount=" + amount + "," + "text=" + "'" + Tag + "'" + "," + "datein=" + "'" + Date + "'" + " where income_id=" + row;
+                odp.SelectCommand = new OracleCommand(updateSql, odpConn);
+                DataSet DS = new DataSet();
+                odp.Fill(DS);
+
+                ClearTextBoxes();
+                showDataGridView();
+            }
+            catch (DataException DE)
+            {
+                MessageBox.Show(DE.Message);
+            }
+            catch (Exception DE)
+            {
+                MessageBox.Show(DE.Message);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int row = Convert.ToInt32(DBGrid.SelectedCells[0].Value);
+            OracleDataAdapter odp = new OracleDataAdapter();
+            string deleteSql = "delete from income where income_id=" + row;
+            odp.SelectCommand = new OracleCommand(deleteSql, odpConn);
+            DataSet DS = new DataSet();
+            odp.Fill(DS);
+            showDataGridView();
         }
     }
 }
